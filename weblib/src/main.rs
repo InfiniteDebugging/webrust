@@ -1,5 +1,5 @@
 use std::io;
-use weblib::encrypter::{rot13, Encryptable};
+use weblib::cipher::{rot13, Cipher};
 
 fn main() {
     println!("Hello, world!");
@@ -12,6 +12,6 @@ fn main() {
     println!("Your input: {}", &user_input);
     println!(
         "Your input encrypted: {}",
-        rot13::Rot13(user_input.to_string()).encrypt()
+        rot13::Rot13(user_input.to_string()).encrypted_string()
     );
 }
