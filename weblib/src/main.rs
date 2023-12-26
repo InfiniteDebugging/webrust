@@ -10,5 +10,8 @@ fn main() {
         .expect("Unable to read input!");
     let user_input = user_input.trim_end_matches('\n');
     println!("Your input: {}", &user_input);
-    println!("Your input encrypted: {}", rot13::Rot13(user_input.to_string()).encrypt());
+    println!(
+        "Your input encrypted: {}",
+        rot13::Rot13(user_input.to_string()).encrypt()
+    );
 }
