@@ -14,3 +14,6 @@ name = "webbin"
 path = "src/main.rs"
 
 [dependencies]
+base64 = "0.21.5"
+rand = "0.8.5"
+rsa = "0.9.6"
