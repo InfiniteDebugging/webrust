@@ -1,5 +1,5 @@
 use std::io;
-use weblib::cipher::{rot13, Cipher};
+use weblib::cipher::{rot13, rsa, Cipher};
 
 fn main() {
     println!("Hello, world!");
@@ -11,7 +11,18 @@ fn main() {
     let user_input = user_input.trim_end_matches('\n');
     println!("Your input: {}", &user_input);
     println!(
-        "Your input encrypted: {}",
-        rot13::Rot13(user_input.to_string()).encrypted_string()
+        "Your input Rot13 encrypted: {}",
+        rot13::Rot13(user_input.to_string())
+            .encrypted_string()
+            .unwrap()
+    );
+    let rsa_encrypted = rsa::Rsa::new(user_input.to_string()).expect("Error while encrypting");
+    println!(
+        "Your input RSA encrypted: {}",
+        rsa_encrypted.encrypted_string().unwrap()
+    );
+    println!(
+        "Your input RSA encrypted and decrypted: {}",
+        rsa_encrypted.original_string().unwrap()
     );
 }
